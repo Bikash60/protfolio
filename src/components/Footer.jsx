@@ -66,7 +66,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1 }}
+                  whileHover={{ y: -3, scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 glass-card border-accent-cyan/30 hover:border-accent-cyan text-neutral-400 hover:text-accent-cyan transition-all duration-300"
                   aria-label={social.label}
@@ -87,7 +87,7 @@ const Footer = () => {
                 <li key={index}>
                   <motion.a
                     href={link.href}
-                    whileHover={{ x: 5 }}
+                    whileHover={{ x: 3 }}
                     className="text-neutral-400 hover:text-accent-cyan transition-colors duration-300 inline-block"
                   >
                     {link.label}

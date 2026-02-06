@@ -93,19 +93,19 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.5,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -140,7 +140,7 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -5 }}
               className="group cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >

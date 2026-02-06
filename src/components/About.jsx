@@ -12,19 +12,19 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.4,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -79,17 +79,17 @@ const About = () => {
 
             {/* Floating tech badges */}
             <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 glass-card px-4 py-2 border border-accent-cyan/30"
+              animate={{ y: [-8, 8, -8] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+              className="absolute -top-6 -right-6 glass-card px-4 py-2 border border-accent-cyan/30 will-change-transform"
             >
               <span className="text-accent-cyan font-mono text-sm">React.js</span>
             </motion.div>
             
             <motion.div
-              animate={{ y: [10, -10, 10] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 glass-card px-4 py-2 border border-accent-blue/30"
+              animate={{ y: [8, -8, 8] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+              className="absolute -bottom-6 -left-6 glass-card px-4 py-2 border border-accent-blue/30 will-change-transform"
             >
               <span className="text-accent-blue font-mono text-sm">Node.js</span>
             </motion.div>
@@ -139,7 +139,7 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ scale: 1.01, y: -3 }}
                 className="glass-card p-5 hover:border-accent-cyan/30 transition-all duration-300 group"
               >
                 <item.icon className="w-8 h-8 text-accent-cyan mb-3 group-hover:scale-110 transition-transform duration-300" />

@@ -41,19 +41,19 @@ const Education = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.5,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -88,7 +88,7 @@ const Education = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -5, scale: 1.01 }}
               className="glass-card p-8 hover:border-accent-cyan/50 transition-all duration-500 group relative overflow-hidden"
             >
               {/* Background gradient */}

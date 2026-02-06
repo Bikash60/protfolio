@@ -67,19 +67,19 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 40, opacity: 0 },
+    hidden: { y: 25, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.4,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -141,7 +141,7 @@ const Skills = () => {
               <motion.div
                 key={categoryIndex}
                 variants={itemVariants}
-                whileHover={{ scale: 1.02, y: -5 }}
+                whileHover={{ scale: 1.01, y: -3 }}
                 className={`glass-card p-8 hover:border-${category.color}/30 transition-all duration-300 group relative overflow-hidden`}
               >
                 {/* Background gradient */}
@@ -177,8 +177,8 @@ const Skills = () => {
                             initial={{ width: 0 }}
                             animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
                             transition={{ 
-                              duration: 1, 
-                              delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                              duration: 0.6, 
+                              delay: categoryIndex * 0.05 + skillIndex * 0.03,
                               ease: "easeOut" 
                             }}
                             className={`h-full bg-gradient-to-r ${colorClasses.gradient.replace('to-transparent', `to-${category.color}`)} rounded-full`}
@@ -209,7 +209,7 @@ const Skills = () => {
             {['JSON', 'AJAX', 'REST API', 'Git', 'SVN', 'Responsive Design', 'Agile/Scrum'].map((tech, index) => (
               <motion.span
                 key={index}
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 className="px-4 py-2 glass-card text-sm text-neutral-300 font-mono border border-neutral-700 hover:border-accent-cyan/50 transition-all duration-300"
               >
                 {tech}

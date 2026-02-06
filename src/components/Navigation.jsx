@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Menu, X, Download } from 'lucide-react';
 
 const Navigation = () => {
@@ -16,27 +16,38 @@ const Navigation = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
 
-      // Determine active section
-      const sections = navItems.map(item => item.href.substring(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
-            break;
-          }
+    // Determine active section
+    const sections = navItems.map(item => item.href.substring(1));
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          setActiveSection(section);
+          break;
         }
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', scrollListener, { passive: true });
+    return () => window.removeEventListener('scroll', scrollListener);
+  }, [handleScroll]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -108,7 +119,6 @@ const Navigation = () => {
                   {item.label}
                   {activeSection === item.href.substring(1) && (
                     <motion.div
-                      layoutId="activeSection"
                       className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-cyan"
                     />
                   )}
@@ -167,7 +177,7 @@ const Navigation = () => {
           animate={{
             x: isMobileMenuOpen ? 0 : '100%',
           }}
-          transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 250 }}
           className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-primary border-l border-neutral-800 p-8 pt-24"
         >
           <nav className="flex flex-col gap-6">
@@ -181,7 +191,7 @@ const Navigation = () => {
                   x: isMobileMenuOpen ? 0 : 50,
                   opacity: isMobileMenuOpen ? 1 : 0,
                 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.03 }}
                 className={`text-2xl font-semibold transition-colors duration-300 ${
                   activeSection === item.href.substring(1)
                     ? 'text-accent-cyan'
@@ -200,7 +210,7 @@ const Navigation = () => {
                 x: isMobileMenuOpen ? 0 : 50,
                 opacity: isMobileMenuOpen ? 1 : 0,
               }}
-              transition={{ delay: navItems.length * 0.05 }}
+              transition={{ delay: navItems.length * 0.03 }}
               className="btn-primary text-lg inline-flex items-center justify-center gap-2 mt-4"
             >
               <Download className="w-5 h-5" />

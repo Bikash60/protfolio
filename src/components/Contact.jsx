@@ -83,19 +83,19 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 40, opacity: 0 },
+    hidden: { y: 25, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.5,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -142,7 +142,7 @@ const Contact = () => {
                 {contactInfo.map((item, index) => (
                   <motion.div
                     key={index}
-                    whileHover={{ x: 10 }}
+                    whileHover={{ x: 5 }}
                     className="flex items-center gap-4 group"
                   >
                     <div className="p-3 bg-gradient-to-br from-accent-cyan/10 to-accent-blue/10 rounded-xl border border-accent-cyan/30 group-hover:border-accent-cyan/50 transition-colors duration-300">
@@ -179,7 +179,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileHover={{ y: -3, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`p-4 glass-card border-accent-cyan/30 hover:border-accent-cyan transition-all duration-300 ${social.color}`}
                     aria-label={social.label}

@@ -47,19 +47,19 @@ const Experience = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { x: -60, opacity: 0 },
+    hidden: { x: -30, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        duration: 0.5,
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -110,7 +110,7 @@ const Experience = () => {
 
                 {/* Content card */}
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileHover={{ scale: 1.01, y: -3 }}
                   className={`glass-card p-8 ml-12 md:ml-0 ${
                     exp.highlight 
                       ? 'border-accent-cyan/50 hover:border-accent-cyan' 

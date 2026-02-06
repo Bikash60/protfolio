@@ -18,7 +18,7 @@ function App() {
     // Simulate initial load
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1200);
   }, []);
 
   return (
@@ -49,7 +49,7 @@ function App() {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
                 className="h-full bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple"
               />
             </div>
@@ -84,24 +84,26 @@ function App() {
           </main>
           <Footer />
 
-          {/* Floating particles decoration */}
+          {/* Floating particles decoration - REDUCED */}
           <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-accent-cyan/20 rounded-full"
+                className="absolute w-1 h-1 bg-accent-cyan/20 rounded-full will-change-transform"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
                 }}
                 animate={{
-                  y: [0, -30, 0],
-                  opacity: [0.2, 0.5, 0.2],
+                  y: [0, -20, 0],
+                  opacity: [0.2, 0.4, 0.2],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: 2.5 + Math.random() * 1.5,
                   repeat: Infinity,
                   delay: Math.random() * 2,
+                  ease: "easeInOut",
+                  repeatType: "reverse"
                 }}
               />
             ))}
