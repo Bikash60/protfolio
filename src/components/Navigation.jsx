@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
 import { Menu, X, Download } from 'lucide-react';
-
+import resumePdf  from "../assets/bikashresume.pdf";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -126,7 +126,7 @@ const Navigation = () => {
               ))}
               
               <motion.a
-                href="/resume.pdf"
+                href={resumePdf}
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

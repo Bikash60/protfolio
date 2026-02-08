@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download, Mail, Github, Linkedin } from "lucide-react";
 import profimg from "../assets/profimg.png";
-
+import resumePdf  from "../assets/bikashresume.pdf";
 const Hero = () => {
   const reduceMotion = useReducedMotion();
 
@@ -52,7 +52,7 @@ const Hero = () => {
               <Mail size={18} /> Get in Touch
             </a>
             <a
-              href="/resume.pdf"
+              href={resumePdf}
               download
               className="px-6 py-3 border border-neutral-700 rounded-lg text-neutral-300 hover:text-accent-cyan transition"
             >
