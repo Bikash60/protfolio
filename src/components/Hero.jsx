@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download, Mail, Github, Linkedin } from "lucide-react";
+import profimg from "../assets/profimg.png";
 
 const Hero = () => {
   const reduceMotion = useReducedMotion();
@@ -80,7 +81,7 @@ const Hero = () => {
             <div className="absolute -inset-4 bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple opacity-20 blur-xl rounded-2xl" />
             <div className="relative glass-card p-2">
               <img
-                src="./profimg.png"
+                src={profimg}
                 alt="Bikash Kumar Chand"
                  className="w-96 h-96 object-cover rounded-2xl opacity-90 group-hover:opacity-100 transition"
               />
