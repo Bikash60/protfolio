@@ -14,20 +14,35 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 2000);
-  };
+  try {
+    const response = await fetch("http://localhost:5678/webhook/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send message");
+    }
+
+    setSubmitted(true);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    setTimeout(() => setSubmitted(false), 5000);
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const handleChange = (e) => {
     setFormData({
