@@ -17,22 +17,25 @@ const Footer = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const socialLinks = [
+const socialLinks = [
     {
       icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/bikashchand',
+      label: "GitHub",
+      href: "https://github.com/Bikash60",
+      color: "hover:text-accent-cyan"
     },
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com/in/bikashchand',
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/bikash-chand-7247aa244",
+      color: "hover:text-accent-blue"
     },
     {
-      icon: Mail,
-      label: 'Email',
-      href: 'mailto:bikashchand1998@gmail.com',
-    },
+      icon: Twitter,
+      label: "Twitter",
+      href: "https://x.com/bickychand60",
+      color: "hover:text-accent-purple"
+    }
   ];
 
   return (
