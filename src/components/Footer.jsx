@@ -21,20 +21,17 @@ const socialLinks = [
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/Bikash60",
-      color: "hover:text-accent-cyan"
+      href: "https://github.com/Bikash60"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/bikash-chand-7247aa244",
-      color: "hover:text-accent-blue"
+      href: "https://www.linkedin.com/in/bikash-chand-7247aa244"
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://x.com/bickychand60",
-      color: "hover:text-accent-purple"
+      icon: Mail,
+      label: 'Email',
+      href: 'mailto:bikashchand1998@gmail.com'
     }
   ];
 
